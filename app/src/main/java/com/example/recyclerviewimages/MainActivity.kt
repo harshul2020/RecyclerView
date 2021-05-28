@@ -15,18 +15,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         val showOptionsButton = findViewById<Button>(R.id.show_options_button)
         showOptionsButton.setOnClickListener { showImages() }
-        getImages()
+//        getImages()
     }
 
     private fun showImages() {
         val imagesActivity = Intent(this, ImagesActivity::class.java)
-        intent.putExtra("url", getString(R.string.url))
+//        intent.putExtra("url", getString(R.string.url))
         startActivity(imagesActivity)
     }
 
-    private fun getImages() {
+/*    private fun getImages() {
         val imagesList = ImagesService.imagesInstace.getImages("test", 5,
             120, 120)
 
@@ -42,6 +43,6 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Harshul", "Error")
             }
         })
-    }
+    }*/
 
 }

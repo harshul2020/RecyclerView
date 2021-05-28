@@ -2,4 +2,5 @@
     <string name="app_name">RecyclerViewImages</string>
     <string name="show_options">Show Options</string>
     <string name="url"><![CDATA[https://hub.dummyapis.com/ImagesList?text=Test&noofimages=10&height=120&width=120]]></string>
+    <string name="error">Unable to fetch images</string>
 </resources>
