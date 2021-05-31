@@ -8,8 +8,9 @@ import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.recyclerviewimages.models.Image
 
-class MyAdapter(private val imageUrlList: List<String>?): RecyclerView.Adapter<MyViewHolder>() {
+class MyAdapter(private val imageUrlList: List<Image>?): RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.image_item, parent, false)
@@ -21,7 +22,7 @@ class MyAdapter(private val imageUrlList: List<String>?): RecyclerView.Adapter<M
             var color = Color.rgb(220, 220, 220)
             if(position % 2 == 0) color = Color.rgb(240, 240, 240)
             holder.container.setBackgroundColor(color)
-            Glide.with(holder.itemView).load(imageUrlList[position])
+            Glide.with(holder.itemView).load(imageUrlList[position].image_url)
                 .into(holder.image)
         }
     }

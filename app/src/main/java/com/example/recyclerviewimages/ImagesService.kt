@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-//https://hub.dummyapis.com/ImagesList?text=Test&noofimages=10&height=120&width=120
+
 const val BASE_URL = "https://hub.dummyapis.com/"
 
 interface ImagesInterface {
