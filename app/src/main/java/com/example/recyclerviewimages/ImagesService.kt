@@ -1,7 +1,9 @@
 package com.example.recyclerviewimages
 
-import retrofit2.Call
+import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
+import io.reactivex.rxjava3.core.Observable
 import retrofit2.Retrofit
+//import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -17,17 +19,18 @@ interface ImagesInterface {
         @Query("noofimages") noofimages: Int,
         @Query("height") height: Int,
         @Query("width")width: Int
-    ): Call<List<String> >
+    ): Observable<List<String>>
 }
 
 object ImagesService {
-    val imagesInstace: ImagesInterface
+    val imagesInstance: ImagesInterface
     init {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
 
-        imagesInstace = retrofit.create(ImagesInterface::class.java)
+        imagesInstance = retrofit.create(ImagesInterface::class.java)
     }
 }
